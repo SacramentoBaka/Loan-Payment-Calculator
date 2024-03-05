@@ -47,24 +47,26 @@
       <div class="logreg-box">
         <div class="form-box login">
           <form action="#">
-            <h2>Loan Calculate</h2>
+            <h2>Calculate</h2>
             <div class="input-box">
               <span class="icon"><i class="bx bx-money"></i></span>
-              <input type="text" />
+              <input type="text" id="inputAmount" />
               <label>Amount Of Loan</label>
             </div>
             <div class="input-box">
               <span class="icon"><i class="bx bxs-bank"></i></span>
-              <input type="text" />
+              <input type="text" id="inputInterest" />
               <label>Annual Interest Rate</label>
             </div>
             <div class="input-box">
               <span class="icon"><i class="bx bxs-time-five"></i></span>
-              <input type="text" />
+              <input type="text" id="inputYears" />
               <label>Terms(Years)</label>
             </div>
 
-            <button type="submit" class="btn">Calculate</button>
+            <button type="submit" onclick="displayMonthlyRate()" class="btn">
+              Calculate
+            </button>
 
             <div class="login-register">
               <p>
@@ -79,14 +81,14 @@
 
         <div class="form-box register">
           <form action="#">
-            <h2>Loan Results</h2>
+            <h2>Results</h2>
             <div class="input-box">
               <span class="icon"><i class="bx bx-money"></i></span>
               <input type="text" />
               <label>Monthly Payment</label>
             </div>
 
-            <button type="submit" class="btn">Sign Up</button>
+            <button type="submit" class="btn">Print</button>
 
             <div class="login-register">
               <p>
