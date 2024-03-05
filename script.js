@@ -2,21 +2,31 @@ const logregBox = document.querySelector('.logreg-box');
 const loginLink = document.querySelector('.login-link');
 const registerLink = document.querySelector('.btn');
 
-registerLink.addEventListener('click', () =>{
-    logregBox.classList.add('active');
-});
-
-
 function displayMonthlyRate() {
 
     const inputBoxAmount = document.getElementById("inputAmount");
-    const amount = inputBoxAmount.value;
+    const loanAmount = parseFloat(inputBoxAmount.value);
     const inputBoxRate = document.getElementById("inputInterest");
-    const interestRate = inputBoxRate.value;
+    const interestRate = parseFloat(inputBoxRate.value);
     const inputBoxTerm = document.getElementById("inputYears");
-    const termYears = inputBoxTerm.value;
+    const loanTerm = parseInt(inputBoxTerm.value);
 
-    loginLink.addEventListener('click', () =>{
-        logregBox.classList.remove('active');
+    const results = document.getElementById("inputResults");
+   
+    registerLink.addEventListener('click', () =>{
+        
+        if(!isNaN(loanAmount) && !isNaN(interestRate) && !isNaN(loanTerm)){
+
+            const monthlyInterestRate = (interestRate / 100) / 12;
+            const numberOfPayments = loanTerm * 12;
+            const x = Math.pow(1 + monthlyInterestRate, numberOfPayments);
+            const monthlyPayment = (loanAmount * x * monthlyInterestRate) / (x - 1);
+            results.value = monthlyPayment;
+            logregBox.classList.add('active');
+        } 
+        
     });
   }
+  loginLink.addEventListener('click', () =>{
+    logregBox.classList.remove('active');
+});
