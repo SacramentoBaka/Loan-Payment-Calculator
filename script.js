@@ -21,7 +21,7 @@ function displayMonthlyRate() {
             const numberOfPayments = loanTerm * 12;
             const x = Math.pow(1 + monthlyInterestRate, numberOfPayments);
             const monthlyPayment = (loanAmount * x * monthlyInterestRate) / (x - 1);
-            results.value = monthlyPayment;
+            results.value = monthlyPayment.toFixed(2);
             logregBox.classList.add('active');
         } 
         
